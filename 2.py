@@ -1,4 +1,5 @@
 import requests
+import base64
 
 def upload_image_to_imgbb(api_key, image_path):
     with open(image_path, "rb") as image_file:
