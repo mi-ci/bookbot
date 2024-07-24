@@ -1,11 +1,13 @@
 import requests
 
 def upload_image_to_imgbb(api_key, image_path):
+    with open(image_path, "rb") as image_file:
+        encoded_image = base64.b64encode(image_file.read()).decode("utf-8")
     # Define the endpoint and parameters
     url = "https://api.imgbb.com/1/upload"
     payload = {
         "key": api_key,
-        "image": open(image_path, "rb").read()
+        "image": encoded_image
     }
 
     # Make the request
